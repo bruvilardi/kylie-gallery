@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Loader2, ImageOff } from 'lucide-react';
 import { Photo, CloudinaryListResponse, CloudinaryResource } from '../types';
-import { getOptimizedUrl, generateSrcSet } from '../constants';
+import { getOptimizedUrl, generateSrcSet, CLOUD_NAME } from '../constants';
 
 interface PhotoGridProps {
   category: string;
@@ -14,7 +14,6 @@ interface PhotoGridProps {
   onPhotosFetched?: (photos: Photo[]) => void;
 }
 
-const CLOUD_NAME = 'Kylie-gallery';
 
 export const PhotoGrid: React.FC<PhotoGridProps> = ({ 
   category, 

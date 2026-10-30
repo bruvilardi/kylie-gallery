@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Menu, ChevronDown } from 'lucide-react';
 import { ViewState } from '../types';
-import { CATEGORIES } from '../constants';
+import { CATEGORIES, CLOUD_NAME } from '../constants';
 
 interface NavbarProps {
   currentView: ViewState;
@@ -30,8 +30,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   
   // URLs dos logos no Cloudinary
-  const mainLogo = "https://res.cloudinary.com/kylie-gallery/image/upload/v1765381604/logo_tnfiit.webp";
-  const smallLogo = "https://res.cloudinary.com/kylie-gallery/image/upload/v1765816401/selo_menor_av5nbp.png";
+  const mainLogo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/logo_tnfiit.webp`;
+  const smallLogo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/selo_menor_av5nbp.png`;
 
   // Lógica de seleção do logo: Se estiver na home ('categories'), usa o logo principal, senão usa o selo menor.
   const logoUrl = currentView === 'categories' ? mainLogo : smallLogo;

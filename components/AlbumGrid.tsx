@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Album, CloudinaryListResponse, CloudinaryResource } from '../types';
 import { Image as ImageIcon, Camera, Loader2, AlertCircle } from 'lucide-react';
-import { SPECIFIC_ALBUMS, getOptimizedUrl } from '../constants';
+import { SPECIFIC_ALBUMS, getOptimizedUrl, CLOUD_NAME } from '../constants';
 
 interface AlbumGridProps {
   category: string;
@@ -11,7 +11,6 @@ interface AlbumGridProps {
   onSelectAlbum: (album: Album) => void;
 }
 
-const CLOUD_NAME = 'Kylie-gallery';
 
 const formatTitle = (slug: string) => {
   if (slug === slug.toUpperCase() && slug.length > 2) return slug;

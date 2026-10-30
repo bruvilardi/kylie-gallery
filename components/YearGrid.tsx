@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Folder } from 'lucide-react';
 import { SeloK } from './SeloK';
-import { SPECIFIC_ALBUMS } from '../constants';
+import { SPECIFIC_ALBUMS, CLOUD_NAME } from '../constants';
 
 interface YearGridProps {
   years: number[];
@@ -10,7 +10,6 @@ interface YearGridProps {
   onSelectYear: (year: number) => void;
 }
 
-const CLOUD_NAME = 'Kylie-gallery';
 
 export const YearGrid: React.FC<YearGridProps> = ({ years, category, onSelectYear }) => {
   const [activeYears, setActiveYears] = useState<Set<number>>(new Set());

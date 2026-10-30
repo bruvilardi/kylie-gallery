@@ -2,14 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Category, CloudinaryListResponse } from '../types';
 import { Image as ImageIcon } from 'lucide-react';
-import { getOptimizedUrl, generateSrcSet } from '../constants';
+import { getOptimizedUrl, generateSrcSet, CLOUD_NAME } from '../constants';
 
 interface CategoryCardProps {
   category: Category;
   onClick: (id: string) => void;
 }
 
-const CLOUD_NAME = 'Kylie-gallery';
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick }) => {
   const [displayImage, setDisplayImage] = useState<string | null>(category.coverImage);

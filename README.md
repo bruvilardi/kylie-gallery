@@ -1,20 +1,46 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Kylie Lovers BR Gallery
 
-# Run and deploy your AI Studio app
+Galeria de imagens estilo Apple TV dedicada à Kylie Minogue, cobrindo as eras de 1987 a 2025.
+Feita com React 19 + Vite + TypeScript; as imagens ficam no Cloudinary.
 
-This contains everything you need to run your app locally.
+## Rodar localmente
 
-View your app in AI Studio: https://ai.studio/apps/fc91448d-eedf-42d5-9656-93668ea86310
+Pré-requisito: Node.js 18+
 
-## Run Locally
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # gera a pasta dist/
+```
 
-**Prerequisites:**  Node.js
+## Como as imagens são organizadas (Cloudinary)
 
+A galeria não tem banco de dados: ela lê as listas públicas de imagens por **tag** do Cloudinary
+(`https://res.cloudinary.com/<cloud>/image/list/<tag>.json`). Para uma imagem aparecer no site,
+basta subir na conta e aplicar a tag certa.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+| Onde aparece | Tag | Exemplo |
+|---|---|---|
+| Capa da categoria na home | `main_<categoria>` | `main_live` |
+| Fotos de um álbum | `<categoria>_<ano>_<id-do-álbum>` | `live_2025_tension-tour-brasil` |
+| Capa de um álbum | a tag de capa definida em `constants.ts` (`coverTag`) | `live_2025_tension-tour-brasil_cover` |
+| Artworks sem ano | `artwork_live_albums`, `artwork_other` | |
+
+Categorias: `photoshoots`, `video`, `artwork`, `live`.
+
+Os álbuns de Photoshoots e Live, e os catálogos de Video e Artwork, são definidos em `constants.ts`
+(`SPECIFIC_ALBUMS`, `VIDEO_CATALOG`, `ARTWORK_CATALOG`). Para um álbum novo: crie a entrada lá e suba
+as fotos com a tag correspondente.
+
+### Configuração da conta
+
+- A conta usada é definida em `constants.ts` (`CLOUD_NAME`, padrão `drvtrbeky`) e pode ser trocada pela
+  variável de ambiente `VITE_CLOUDINARY_CLOUD_NAME` (por exemplo, nas Environment Variables da Vercel).
+- No Cloudinary, em **Settings → Security**, a opção **Resource list** precisa estar **liberada**
+  (desmarcada em "Restricted media types"), senão as listas por tag retornam 404 e a galeria fica vazia.
+- As imagens estão na pasta `kylie-gallery` da Media Library.
+
+## Deploy na Vercel
+
+Importe este repositório em https://vercel.com/new. A Vercel detecta Vite sozinha
+(build `npm run build`, saída `dist`).

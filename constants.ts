@@ -123,7 +123,9 @@ export const getAllArtworkAlbums = (): Album[] => {
 };
 
 // --- HELPER FUNCTIONS PARA CLOUDINARY ---
-const CLOUD_NAME = 'Kylie-gallery';
+// Conta Cloudinary de onde vêm as imagens. Pode ser trocada pela variável
+// de ambiente VITE_CLOUDINARY_CLOUD_NAME (ex.: na Vercel) sem mexer no código.
+export const CLOUD_NAME: string = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || 'drvtrbeky';
 
 // Gera uma URL única otimizada com largura opcional
 export const getOptimizedUrl = (version: number, public_id: string, width?: number) => {

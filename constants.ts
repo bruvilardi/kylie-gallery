@@ -35,6 +35,7 @@ export const SPECIFIC_ALBUMS: Record<string, { id: string, title: string, coverT
   'photoshoots_1989': [{ id: 'simon-fowler', title: 'Simon Fowler', coverTag: 'photoshoots_1989_simon-fowler-cover' }],
   'photoshoots_1990': [{ id: 'marcus-morianz', title: 'Marcus Morianz', coverTag: 'photoshoots_1990_marcus-morianz-cover' }],
   'photoshoots_1991': [{ id: 'juergen-teller', title: 'Juergen Teller', coverTag: 'photoshoots_1991_juergen-teller-cover' }],
+  'photoshoots_1994': [{ id: 'derek-ridgers', title: 'Derek Ridgers', coverTag: 'photoshoots_1994_derek-ridgers-cover' }],
   'photoshoots_1997': [{ id: 'stephanie-sednaoui', title: 'Stephanie Sednaoui', coverTag: 'photoshoots_1997_stephanie-sednaoui-cover' }],
   'photoshoots_2001': [{ id: 'vincent-peters', title: 'Vincent Peters', coverTag: 'photoshoots_2001_vincent-peters-cover' }],
   'photoshoots_2003': [{ id: 'mert-alas-and-marcus-piggott', title: 'Mert Alas And Marcus Piggott', coverTag: 'photoshoots_2003_mert-alas-and-marcus-piggott-cover' }],
